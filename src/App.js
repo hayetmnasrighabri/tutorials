@@ -1,15 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function App() {
-  const numberList=[1,2,3,4,5,6,7,8,9,10]
+  const [data, setData]=useState('salut')
   return (
     <div>
-      {numberList.map((number)=>{
-        return(
-        <div>{number}</div>
-      )})}
+      <input type='text' value={data} onChange={(e)=>setData(e.target.value)}/>
+    {data}
     </div>
   )
-}
+ }
 
 export default App
