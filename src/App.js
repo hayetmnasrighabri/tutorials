@@ -1,19 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function App() {
-const {name}=useApp()
   return (
     <div>
-      {name}
+      <A/>
     </div>
   )
 }
-const useApp=()=>{
-  const [name, setName]=useState('gedeon')
-  setTimeout(()=>{
-    setName('pasdenom')
-  },2000)
+const A=()=>{
+  const name="John Doe"
   return(
-  {name}
-)}
+    <B name={name}/>
+  )
+}
+const B=({name})=>{
+  return(
+    <C name={name}/>
+  )
+}
+const C=({name})=>{
+  return(
+   <h1>{name}</h1>
+  )
+}
 export default App
