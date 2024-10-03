@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, useContext } from 'react'
 
 function App() {
   return (
@@ -7,18 +7,23 @@ function App() {
     </div>
   )
 }
+const Name=createContext("Gedeon")
 const A=()=>{
-  const name="John Doe"
+
   return(
-    <B name={name}/>
+    <Name.Provider value='Koffi'>
+        <B/>
+    </Name.Provider>
+   
   )
 }
-const B=({name})=>{
+const B=()=>{
   return(
-    <C name={name}/>
+    <C/>
   )
 }
-const C=({name})=>{
+const C=()=>{
+  const name=useContext(Name)
   return(
    <h1>{name}</h1>
   )
