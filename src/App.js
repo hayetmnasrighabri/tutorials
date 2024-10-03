@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 
 function App() {
-  const [data, setData]=useState('salut')
+  const [name, setName]=useState('gedeon')
+  setTimeout(()=>{
+    setName('pasdenom')
+  },2000)
   return (
     <div>
-      <input type='text' value={data} onChange={(e)=>setData(e.target.value)}/>
-    {data}
+      {name}
     </div>
   )
- }
+}
 
 export default App
