@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const age=20
-
+  const numberList=[1,2,3,4,5,6,7,8,9,10]
   return (
     <div>
-      <h1>Value is {count}</h1>
-      <button onClick={() => {setCount(count + 1)}}>
-        { age ?'mineur':'majeur'} 
-      </button>
+      {numberList.map((number)=>{
+        return(
+        <div>{number}</div>
+      )})}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
