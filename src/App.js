@@ -1,31 +1,30 @@
-import React, { createContext, useContext } from 'react'
+import React from 'react'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
-function App() {
-  return (
+const Home=()=>{
+  return(
     <div>
-      <A/>
+    <h1>Home</h1>
+    <Link to="about">About</Link>
     </div>
   )
 }
-const Name=createContext("Gedeon")
-const A=()=>{
+const About=()=>{
+  return(
+    <h1>About est la page</h1>
+  )
+}
+function App() {
+  return (
+    <div>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="about" element={<About/>}/>
+      </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
 
-  return(
-    <Name.Provider value='Koffi'>
-        <B/>
-    </Name.Provider>
-   
-  )
-}
-const B=()=>{
-  return(
-    <C/>
-  )
-}
-const C=()=>{
-  const name=useContext(Name)
-  return(
-   <h1>{name}</h1>
-  )
-}
 export default App
