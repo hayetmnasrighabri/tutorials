@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes, useParams } from 'react-router-dom'
 
 const Home=()=>{
   return(
@@ -10,8 +10,9 @@ const Home=()=>{
   )
 }
 const About=()=>{
+  const {id}=useParams()
   return(
-    <h1>About est la page</h1>
+    <h1>About est la page {id}</h1>
   )
 }
 function App() {
@@ -20,7 +21,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="about" element={<About/>}/>
+        <Route path="about/:id" element={<About/>}/>
+        <Route path='*' element={<h1>404</h1>}/>
       </Routes>
       </BrowserRouter>
     </div>
